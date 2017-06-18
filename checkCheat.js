@@ -12,22 +12,6 @@ new Promise((resolve) => {
             resolve(file);
     });
 }).then((files) => {
-    // data.sort((a, b) => {
-    //     md5_a = a.split(' = ')[1];
-    //     md5_b = b.split(' = ')[1];
-
-    //     if(md5_a > md5_b) {
-    //         return 1;
-    //     } else if (md5_a < md5_b) {
-    //         return -1;
-    //     }
-    //     return 0;
-    // });
-
-    // data.every((element, index, array) => {
-    //     console.log("Index:", index, element);
-    // });
-
     // Pre process for check repeat
     // Transfer item in array to object
     var files_json = files.map(file => {
@@ -54,10 +38,7 @@ new Promise((resolve) => {
 
         return acc;
     });
-    //
-    // console.log("Item in uniq");
-    // Object.keys(uniq).map(i => console.log(uniq[i]));
-    //
+
     var repeated = {};
     for (let md5 in uniq) {
         if (uniq[md5]['count'] > 1)
