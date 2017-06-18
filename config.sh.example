@@ -1,3 +1,6 @@
 # Configuration for chech.sh
-filetype="*.java"
-directory="../javaprogramming2/"
+# e.g. *.java
+filetype="FILE_TYPE"
+directory="$HOME/PATH_TO_THE_FOLDER/"
+md5_list="MD5_LIST.txt"
+repeated_list="REPEATED_LIST.txt"
