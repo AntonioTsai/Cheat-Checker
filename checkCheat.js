@@ -1,16 +1,20 @@
 const fs = require('fs');
 
 new Promise((resolve) => {
-    fs.readFile('MD5sums.txt', 'utf8', (err, data) => {
-        if (err)
-            throw err;
+    if (process.argv.length > 2) {
+        filename = process.argv[2];
+        fs.readFile(filename, 'utf8', (err, data) => {
+            if (err)
+                throw err;
 
-        file = data.split('\n');
-        console.log(`Total ${file.length - 1} files`);
-        // The final line is empty
-        if (file.length != 1)
-            resolve(file);
-    });
+            file = data.split('\n');
+            console.log(`Total ${file.length - 1} files`);
+            // The final line is empty
+            if (file.length != 1)
+                resolve(file);
+        });
+    }
+
 }).then((files) => {
     // Pre process for check repeat
     // Transfer item in array to object
